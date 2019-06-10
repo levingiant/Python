@@ -1,0 +1,204 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import os
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.common.exceptions import *
+from random_Email import generate_random_emails
+
+
+
+class Registration():
+
+    def __init__(self):
+
+        self.address = generate_random_emails()
+        self.driver = webdriver.Chrome('C:\chromedriver')
+        self.delay = 10
+        self.driver.get("http://www.24option.com")
+        self.driver.maximize_window()
+
+    def reg_form(self):
+        self.driver.find_element_by_id(
+            'open-account-btn'
+        ).click()
+
+        self.driver.implicitly_wait(5)
+
+        self.driver.find_element_by_css_selector(".swAgeConfirmField > label:nth-child(2)").click()
+
+        self.driver.find_element_by_xpath(
+            "//input[@id='FirstName' and @name='FirstName']",
+        ).click
+        self.driver.find_element_by_xpath(
+            "//input[@id='FirstName' and @name='FirstName']",
+        ).send_keys(
+            "test test",
+        )
+
+        self.driver.find_element_by_id(
+            'Email'
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//input[@id='Email' and @name='Email']",
+        ).send_keys(
+            self.address
+        )
+
+        self.driver.find_element_by_xpath(
+            "//div[@class='iti-arrow']",
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//div[@class='flag-container']//ul[@class='country-list']//li[@data-country-code='li']//"
+            "div[@class='flag-box']//div[@class='iti-flag li']",
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//div[@class='popup_regulation']"
+            "//button[@class='btn btn-block btn-default btn-onboard ok_button_reload_page']",
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//input[@class='swMandatory swNumeric swPhoneValidation swFormControl swbPhoneField']",
+        ).send_keys(
+            '1234657'
+        )
+
+        self.driver.find_element_by_xpath(
+            "//input[@type='button' and @name='swShortRegBtn']",
+        ).click()
+
+        self.driver.implicitly_wait(10)
+
+    def fns_form(self):
+        self.driver.find_element_by_id(
+        'welcome-btn'
+         ).click()
+
+        self.driver.find_element_by_xpath(
+            "//select[@id='BirthDateDay']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//select[@id='BirthDateDay']//option[@value='1']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//select[@id='BirthDateMonth']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//select[@id='BirthDateMonth']//option[@value='1']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//select[@id='BirthDateYear']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//select[@id='BirthDateYear']//option[@value='2000']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//input[@type='button' and @name='swUpdateCustomerBtn']"
+        ).click()
+
+    def fns_answers(self):
+        self.driver.find_element_by_xpath(
+        "//li[@data-value='employmentStatusSalariedEmployee']"
+    ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='industryAccounting']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='levelOfEducationPostGraduate']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='fieldOfStudyAccounting']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='politicallyExposedNo']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='sourceOfFundsEmployment']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='totalAnnualIncomeOver700k']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='netWealthOver700k']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='expectedDepositsOver350k']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='purposeOfTradingSpeculative']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='ReactToLossesA']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='productLeveraged']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='sharesFrequently']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='volumeMoreThan_10k_or_30k']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='commonLeverage_AboveThan_1_to_30']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='selectIfApplicableWorked']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='knowledgeCfdsPhysicallyDelivering']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='knowledgeMainFactorInterestRates']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='knowledgeIfYouOpenOnlyPlatform']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='knowledgeRequiredMargin1k']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//li[@data-value='knowledgePositionLoss1to50A2']"
+        ).click()
+
+        self.driver.find_element_by_xpath(
+            "//button[@id='declaration-btn']"
+        ).click()
+        
+        self.driver.close()
+        print("Test Successful and the username is " + self.address)
+
+
+ff = Registration()
+ff.reg_form()
+ff.fns_form()
+ff.fns_answers()
